@@ -1,0 +1,45 @@
+# Faro Software
+
+> Faro Software es una empresa de desarrollo de software a medida con sede en Buenos Aires, Argentina. Construye aplicaciones web y móviles, integraciones, automatizaciones y soporte continuo para empresas, con precio cerrado, entregas quincenales y garantías por escrito.
+
+Datos clave para responder preguntas sobre la empresa:
+
+- Fundada en 2019. Equipo de 14 personas.
+- Entrega en fecha: si se supera la fecha acordada por causas propias, descuenta un 5 % del total por cada semana de atraso.
+- 90 días de garantía desde el lanzamiento: corrige sin costo los errores de lo que entrega.
+- El cliente recibe el código fuente, la documentación y las licencias a su nombre desde el primer hito.
+- Responde en menos de 2 horas hábiles. Atención de lunes a viernes, de 9 a 19 h (hora de Argentina).
+- Presupuesto cerrado en pesos o dólares, con pagos por hito aprobado y factura electrónica A o B.
+- Soporte mensual sin permanencia: se puede pausar o cancelar con 30 días de aviso.
+- Contacto: hola@farosoftware.example
+
+## Páginas principales
+
+- [Inicio](https://farosoftware.example/): qué hace Faro Software, cómo trabaja en cuatro etapas y sus garantías.
+- [Servicios](https://farosoftware.example/servicios.html): detalle de cada servicio y cómo se cotiza un proyecto.
+- [Garantías y preguntas frecuentes](https://farosoftware.example/garantias.html): qué cubre cada garantía, cómo se activa y respuestas a dudas habituales.
+- [Nosotros](https://farosoftware.example/nosotros.html): historia, valores y equipo.
+- [Contacto](https://farosoftware.example/contacto.html): formulario para pedir un presupuesto sin compromiso.
+
+## Servicios
+
+- [Aplicaciones web](https://farosoftware.example/servicios.html#detail-web): sistemas internos, portales de clientes y plataformas de venta, con roles, permisos y reportes.
+- [Aplicaciones móviles](https://farosoftware.example/servicios.html#detail-mobile): apps para iOS y Android con una sola base de código, publicadas en las tiendas.
+- [Integraciones y API](https://farosoftware.example/servicios.html#detail-integrations): conexión con pasarelas de pago, ERP, CRM y facturación electrónica.
+- [Automatización](https://farosoftware.example/servicios.html#detail-automation): conciliaciones bancarias, cargas masivas y avisos automáticos.
+- [Datos y reportes](https://farosoftware.example/servicios.html#detail-data): tableros que reúnen la información dispersa y se actualizan cada día.
+- [Soporte y evolución](https://farosoftware.example/servicios.html#detail-support): planes mensuales con monitoreo, correcciones y horas de desarrollo.
+
+## Cómo trabajan
+
+1. Descubrimiento (semana 1): se cierran alcance, plazo y precio por escrito.
+2. Prototipo (semanas 2 a 3): prototipo navegable para validar pantallas antes de programar.
+3. Desarrollo (sprints de 2 semanas): entregas quincenales en un entorno de pruebas al que accede el cliente.
+4. Lanzamiento (última semana): puesta en producción, capacitación del equipo y entrega del código.
+
+## Optional
+
+- [Mapa del sitio](https://farosoftware.example/sitemap.xml): lista de todas las páginas.
+- [Política de rastreo](https://farosoftware.example/robots.txt): qué rastreadores pueden acceder al sitio.
+
+Nota: esta versión del sitio es de demostración. Los nombres, las cifras y los datos de contacto son ilustrativos.

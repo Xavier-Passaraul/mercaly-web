@@ -1,0 +1,36 @@
+# robots.txt · https://farosoftware.example
+# Todo el sitio es público: los buscadores y los asistentes de IA pueden
+# rastrearlo y citarlo. No hay secciones privadas que proteger.
+
+User-agent: *
+Allow: /
+
+# --- Buscadores ---
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckDuckBot
+Allow: /
+
+# --- Asistentes y buscadores de IA (permitidos, así pueden citar el sitio) ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+Allow: /
+
+# --- Rastreadores que reúnen datos para entrenar modelos (permitidos por defecto) ---
+# Para excluirlos, cambiá "Allow: /" por "Disallow: /" en este bloque.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://farosoftware.example/sitemap.xml

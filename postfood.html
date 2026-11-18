@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- SEO -->
+  <title>PostFood: caja y tickets para puestos de comida | Mercaly</title>
+  <meta name="description" content="PostFood, de Mercaly: tomá el pedido, cobrá y entregá el ticket numerado en 4 toques. Para puestos de comida en eventos, ferias y food trucks. Funciona sin internet.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mercaly.com/postfood.html">
+
+  <!-- Icons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mercaly">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="PostFood: caja y tickets para puestos de comida | Mercaly">
+  <meta property="og:description" content="Pedido, cobro y ticket numerado en 4 toques. Funciona sin internet, con ticketera USB o Bluetooth.">
+  <meta property="og:url" content="https://mercaly.com/postfood.html">
+  <meta property="og:image" content="https://mercaly.com/og-image.png">
+
+  <!-- Fonts and styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pf-steps { counter-reset: pf; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .pf-steps li { counter-increment: pf; display: flex; gap: 14px; align-items: flex-start; }
+    .pf-steps li::before { content: counter(pf); flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; background: var(--mint); color: var(--midnight); }
+    .pf-download { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; }
+    .pf-download .button[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+    .pf-version { font-size: .92rem; }
+    /* El logo está pensado sobre blanco: se le da su propio fondo para que se lea también en modo oscuro. */
+    .pf-logo { width: min(100%, 420px); height: auto; margin-bottom: 8px; background: #fff; border-radius: 16px; padding: 12px 18px; box-sizing: border-box; }
+    .pf-icon { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.25); margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+<div class="orbs-background" aria-hidden="true"><span class="orbs-background__orb orbs-background__orb--indigo"></span><span class="orbs-background__orb orbs-background__orb--mint"></span><span class="orbs-background__orb orbs-background__orb--soft"></span></div>
+
+<header class="site-header" id="main-header">
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Mercaly, ir al inicio">
+      <span class="brand__logo" aria-hidden="true"></span>
+      <span class="brand__text">Mercaly</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+    <nav class="nav" id="main-nav" aria-label="Principal">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="servicios.html">Módulos</a>
+      <a class="nav__link nav__link--active" href="postfood.html" aria-current="page">PostFood</a>
+      <a class="nav__link" href="precios.html">Precios</a>
+      <a class="nav__link" href="nosotros.html">Nosotros</a>
+      <a class="nav__link" href="garantias.html">Garantías</a>
+      <a class="button button--primary button--small nav__cta" href="contacto.html">Pedir presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" id="main-content">
+
+<!-- INTRO -->
+<section class="section section--first" id="postfood-header">
+  <div class="section__header">
+    <img class="pf-logo" src="postfood-logo.png" alt="PostFood, sistema de comandas ágil" width="1080" height="320">
+    <span class="eyebrow">PostFood, de Mercaly</span>
+    <h1>Pedido, cobro y ticket en 4 toques</h1>
+    <p class="section__intro">La caja para puestos de comida en eventos, ferias, food trucks y cantinas. Funciona en un celular Android con una ticketera, sin internet y sin capacitación.</p>
+  </div>
+</section>
+
+<!-- DESCARGA -->
+<section class="section" id="descarga">
+  <div class="bento-grid">
+    <article class="card card--indigo glass col-12">
+      <div class="card__row">
+        <div>
+          <img class="pf-icon" src="postfood-icon.png" alt="" width="512" height="512">
+          <span class="eyebrow" style="color:rgba(255,255,255,.6)">App para Android</span>
+          <h2 class="card-title">Descargá PostFood</h2>
+          <p class="card__text">La app se descarga gratis y se habilita con un código de activación por celular. Escribinos para activarla.</p>
+          <p class="card__text pf-version" id="pf-version"></p>
+        </div>
+        <div class="pf-download">
+          <a class="button button--white" id="pf-download" href="#" aria-disabled="true">Disponible pronto</a>
+          <a class="button button--secondary" href="contacto.html">Quiero activarla</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PROBLEMA Y SOLUCIÓN -->
+<section class="section" id="como-funciona">
+  <div class="bento-grid">
+    <article class="card glass col-5">
+      <span class="icon-badge"><span class="icon icon-shield" aria-hidden="true"></span></span>
+      <h2 class="card-title">El problema</h2>
+      <ul class="service__list">
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Pedidos anotados en papel o a los gritos, que se pierden.</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>El cliente no tiene comprobante y cada reclamo es una discusión.</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Pedidos entregados dos veces o nunca.</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Al final de la noche nadie sabe si la caja cierra.</span></li>
+      </ul>
+    </article>
+
+    <article class="card glass col-7">
+      <span class="icon-badge icon-badge--mint"><span class="icon icon-bolt" aria-hidden="true"></span></span>
+      <h2 class="card-title">Cómo funciona</h2>
+      <ol class="pf-steps">
+        <li><span>Tocás los productos: botones grandes de colores.</span></li>
+        <li><span>Tocás <strong>Cobrar</strong>.</span></li>
+        <li><span>Elegís <strong>Efectivo</strong> o <strong>Transferencia</strong>.</span></li>
+        <li><span>El ticket sale solo con número de orden, detalle, total, fecha y hora.</span></li>
+      </ol>
+      <p class="card__text">Cuando el cliente retira, el que entrega le marca el ticket. Ticket entero vale, ticket marcado ya se usó.</p>
+    </article>
+  </div>
+</section>
+
+<!-- FUNCIONES -->
+<section class="section" id="funciones">
+  <div class="bento-grid">
+    <article class="card glass col-4">
+      <span class="icon-badge"><span class="icon icon-clock" aria-hidden="true"></span></span>
+      <h2 class="card-title">Fila más rápida</h2>
+      <p class="card__text">Un pedido se carga en menos de 10 segundos, sin menús ni pasos de más.</p>
+    </article>
+    <article class="card glass col-4">
+      <span class="icon-badge icon-badge--mint"><span class="icon icon-data" aria-hidden="true"></span></span>
+      <h2 class="card-title">Cierre de caja</h2>
+      <p class="card__text">Arqueo a ciegas del efectivo, diferencia y resumen impreso con ventas por producto y por medio de pago.</p>
+    </article>
+    <article class="card glass col-4">
+      <span class="icon-badge"><span class="icon icon-mobile" aria-hidden="true"></span></span>
+      <h2 class="card-title">Funciona sin señal</h2>
+      <p class="card__text">Pensada para predios llenos donde la red se cae. Todo queda guardado en el celular.</p>
+    </article>
+  </div>
+</section>
+
+<!-- REQUISITOS E INSTALACIÓN -->
+<section class="section" id="instalacion">
+  <div class="bento-grid">
+    <article class="card glass col-5">
+      <span class="icon-badge icon-badge--mint"><span class="icon icon-mobile" aria-hidden="true"></span></span>
+      <h2 class="card-title">Qué necesitás</h2>
+      <ul class="service__list">
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Un celular Android.</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Una ticketera térmica de 58 u 80 mm, por USB (con adaptador OTG a USB-C) o por Bluetooth.</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Rollos de papel térmico. No usa tinta.</span></li>
+      </ul>
+      <div class="service__tech">
+        <span class="tech-tag">ESC/POS</span>
+        <span class="tech-tag">USB</span>
+        <span class="tech-tag">Bluetooth</span>
+        <span class="tech-tag">58 / 80 mm</span>
+      </div>
+    </article>
+
+    <article class="card glass col-7">
+      <span class="icon-badge"><span class="icon icon-lock" aria-hidden="true"></span></span>
+      <h2 class="card-title">Cómo instalarla</h2>
+      <ol class="pf-steps">
+        <li><span>Descargá el archivo desde el botón de esta página, en el celular.</span></li>
+        <li><span>Abrilo. Si Android pregunta, permití <strong>instalar apps desconocidas</strong> para tu navegador.</span></li>
+        <li><span>Si aparece el aviso de Play Protect, elegí <strong>Instalar de todas formas</strong>. Es normal en apps que no están en la tienda.</span></li>
+        <li><span>Abrí PostFood, pasanos el <strong>código de equipo</strong> que aparece y te enviamos el código de activación.</span></li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<p class="card__text" style="text-align:center">PostFood no es un facturador: el ticket no es válido como factura.</p>
+
+<!-- CTA FINAL -->
+<section class="final-cta card--indigo glass" id="final-cta">
+  <div class="final-cta__text"><h2>¿Tenés un puesto?</h2><p class="card__text">Te mostramos PostFood funcionando con una ticketera, sin compromiso.</p></div>
+  <a class="button button--white" href="contacto.html">Pedir demo gratuito</a>
+</section>
+
+</main>
+
+<footer class="site-footer" id="page-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__text">Mercaly</span>
+      </a>
+      <p class="card__text">Software de gestión para almacenes, supermercados y más. Próximamente nuevos rubros.</p>
+    </div>
+    <div class="site-footer__column">
+      <p class="site-footer__title">Sitio</p>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Módulos</a>
+      <a href="postfood.html">PostFood</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="garantias.html">Garantías</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="site-footer__column">
+      <p class="site-footer__title">Escribinos</p>
+      <span>hola@mercaly.com</span>
+      <span>Buenos Aires, Argentina</span>
+      <span>Lunes a viernes, 9 a 19 h</span>
+    </div>
+    <p class="site-footer__legal">© 2026 Mercaly. Sitio de demostración.</p>
+  </div>
+</footer>
+
+<script>
+  // Pide a Supabase la última versión publicada desde PostFood Admin.
+  // Es el mismo archivo que descarga el botón "Actualizar" dentro de la app.
+  fetch('https://wmhfdfvrrtnuamoglmpi.supabase.co/functions/v1/postfood-status')
+    .then(r => r.json())
+    .then(({ latest }) => {
+      if (!latest) return;
+      const a = document.getElementById('pf-download');
+      a.href = latest.url;
+      a.removeAttribute('aria-disabled');
+      a.setAttribute('download', 'PostFood.apk');
+      a.textContent = 'Descargar APK';
+      document.getElementById('pf-version').textContent = 'Versión ' + latest.versionName;
+    })
+    .catch(() => { /* sin conexión: el botón queda en "Disponible pronto" */ });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

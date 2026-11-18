@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- SEO -->
+  <title>Precios y planes | Mercaly</title>
+  <meta name="description" content="Elegí el plan de Mercaly que se adapta a tu negocio. Desde un local hasta múltiples sucursales. Sin permanencia, con soporte incluido.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mercaly.com/precios.html">
+
+  <!-- Icons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mercaly">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Precios y planes | Mercaly">
+  <meta property="og:description" content="Planes claros, sin letra chica y sin permanencia. Probá Mercaly gratis y elegí cuando estés seguro.">
+  <meta property="og:url" content="https://mercaly.com/precios.html">
+  <meta property="og:image" content="https://mercaly.com/og-image.png">
+
+  <!-- Fonts and styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── Pricing page local styles ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 860px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .plan-card {
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+      backdrop-filter: blur(20px) saturate(1.5);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 22px 50px rgba(9,13,28,.18), var(--shadow-inset);
+      border-radius: var(--radius-large);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform .3s var(--ease), box-shadow .3s ease;
+    }
+    .plan-card:hover { transform: translateY(-4px); }
+
+    .plan-card--featured {
+      background: linear-gradient(150deg, rgba(228,231,251,.95), rgba(214,246,232,.9));
+      border-color: rgba(63,79,214,.45);
+      position: relative;
+    }
+    .plan-card--featured::before {
+      content: "Más elegido";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #3b4cff, #00d9a3);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .9rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .plan__name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+    .plan__desc {
+      font-size: .9rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .plan__price {
+      display: flex;
+      align-items: baseline;
+      gap: .35rem;
+    }
+    .plan__amount {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--midnight);
+      line-height: 1;
+    }
+    .plan__currency {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      align-self: flex-start;
+      margin-top: .3rem;
+    }
+    .plan__period {
+      font-size: .85rem;
+      color: var(--text-soft);
+    }
+    .plan__note {
+      font-size: .78rem;
+      color: #6b7096;
+      margin: 0;
+    }
+
+    .plan__divider {
+      border: none;
+      border-top: 1px solid rgba(18,24,66,.10);
+      margin: 0;
+    }
+
+    .plan__features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      flex: 1;
+    }
+    .plan__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .88rem;
+      color: var(--text-soft);
+      line-height: 1.45;
+    }
+    .plan__features li .icon {
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      margin-top: .1rem;
+      color: var(--emerald);
+    }
+    .plan__features li.feat--disabled {
+      color: #9aa0c4;
+    }
+    .plan__features li.feat--disabled .icon { color: #b8bdd8; }
+
+    .plan__cta {
+      display: inline-block;
+      text-align: center;
+      padding: .75rem 1.5rem;
+      border-radius: .75rem;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .plan__cta:hover { opacity: .88; transform: translateY(-1px); }
+    .plan__cta--primary {
+      background: linear-gradient(135deg, #3b4cff, #5c6bff);
+      color: #fff;
+    }
+    .plan__cta--outline {
+      border: 1.5px solid rgba(63,79,214,.35);
+      color: var(--indigo-dark);
+    }
+    .plan__cta--outline:hover { border-color: var(--indigo); background: rgba(63,79,214,.06); }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+      color: var(--text-soft);
+      margin-top: 1.5rem;
+    }
+    .compare-table thead th {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--midnight);
+      padding: .75rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(18,24,66,.12);
+    }
+    .compare-table thead th:first-child { text-align: left; }
+    .compare-table tbody tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(18,24,66,.07);
+    }
+    .compare-table tbody td {
+      padding: .7rem 1rem;
+      text-align: center;
+    }
+    .compare-table tbody td:first-child {
+      text-align: left;
+      color: var(--midnight);
+    }
+    .compare-table .check { color: var(--emerald); font-size: 1rem; }
+    .compare-table .dash  { color: #b8bdd8; }
+    .compare-table tbody tr:hover td { background: rgba(63,79,214,.05); }
+  </style>
+</head>
+<body>
+<div class="orbs-background" aria-hidden="true">
+  <span class="orbs-background__orb orbs-background__orb--indigo"></span>
+  <span class="orbs-background__orb orbs-background__orb--mint"></span>
+  <span class="orbs-background__orb orbs-background__orb--soft"></span>
+</div>
+
+<header class="site-header" id="main-header">
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Mercaly, ir al inicio">
+      <span class="brand__logo" aria-hidden="true"></span>
+      <span class="brand__text">Mercaly</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+    <nav class="nav" id="main-nav" aria-label="Principal">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="servicios.html">Módulos</a>
+      <a class="nav__link" href="postfood.html">PostFood</a>
+      <a class="nav__link nav__link--active" href="precios.html" aria-current="page">Precios</a>
+      <a class="nav__link" href="nosotros.html">Nosotros</a>
+      <a class="nav__link" href="garantias.html">Garantías</a>
+      <a class="button button--primary button--small nav__cta" href="contacto.html">Pedir presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" id="main-content">
+
+<!-- ══════════════════════════════════════════════════
+     INTRO
+═════════════════════════════════════════════════════ -->
+<section class="section section--first" id="pricing-header">
+  <div class="section__header">
+    <span class="eyebrow">Precios</span>
+    <h1>Planes claros, sin sorpresas</h1>
+    <p class="section__intro">
+      Elegí el plan que se adapta a tu operación. Sin permanencia, sin costos ocultos
+      y con soporte local incluido en todos los planes. Empezá gratis y pasá a pago cuando estés seguro.
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       CARDS DE PLANES
+       ✏️ Completá los precios cuando los definas
+  ═════════════════════════════════════════════════════ -->
+  <div class="pricing-grid">
+
+    <!-- PLAN BÁSICO -->
+    <div class="plan-card">
+      <div>
+        <p class="plan__name">Básico</p>
+        <p class="plan__desc">Ideal para un local único que quiere ordenar su stock y caja sin complicaciones.</p>
+      </div>
+      <div class="plan__price">
+        <span class="plan__currency">$</span>
+        <!-- ✏️ COMPLETAR PRECIO -->
+        <span class="plan__amount">—</span>
+        <span class="plan__period">/ mes</span>
+      </div>
+      <p class="plan__note">Precio en ARS. IVA no incluido.</p>
+      <hr class="plan__divider">
+      <ul class="plan__features">
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Stock e inventario</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Punto de venta (POS)</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Reportes básicos</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Soporte por correo</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Actualizaciones incluidas</span></li>
+        <!-- Desactivadas en este plan -->
+        <li class="feat--disabled"><span class="icon icon-check" aria-hidden="true"></span><span>Compras y proveedores</span></li>
+        <li class="feat--disabled"><span class="icon icon-check" aria-hidden="true"></span><span>Multi-sucursal</span></li>
+        <li class="feat--disabled"><span class="icon icon-check" aria-hidden="true"></span><span>Integraciones AFIP / balanzas</span></li>
+      </ul>
+      <a class="plan__cta plan__cta--outline" href="contacto.html">Empezar prueba gratis</a>
+    </div>
+
+    <!-- PLAN PRO (destacado) -->
+    <div class="plan-card plan-card--featured">
+      <div>
+        <p class="plan__name">Pro</p>
+        <p class="plan__desc">Para comercios que necesitan control total: compras, reportes avanzados e integraciones.</p>
+      </div>
+      <div class="plan__price">
+        <span class="plan__currency">$</span>
+        <!-- ✏️ COMPLETAR PRECIO -->
+        <span class="plan__amount">—</span>
+        <span class="plan__period">/ mes</span>
+      </div>
+      <p class="plan__note">Precio en ARS. IVA no incluido.</p>
+      <hr class="plan__divider">
+      <ul class="plan__features">
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Stock e inventario</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Punto de venta (POS)</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Compras y proveedores</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Reportes y dashboards completos</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Integraciones AFIP / balanzas</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Soporte prioritario (2 h)</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Actualizaciones incluidas</span></li>
+        <li class="feat--disabled"><span class="icon icon-check" aria-hidden="true"></span><span>Multi-sucursal</span></li>
+      </ul>
+      <a class="plan__cta plan__cta--primary" href="contacto.html">Empezar prueba gratis</a>
+    </div>
+
+    <!-- PLAN MULTI-SUCURSAL -->
+    <div class="plan-card">
+      <div>
+        <p class="plan__name">Multi-sucursal</p>
+        <p class="plan__desc">Para cadenas o negocios con varios puntos de venta que necesitan gestión centralizada.</p>
+      </div>
+      <div class="plan__price">
+        <!-- ✏️ COMPLETAR PRECIO o poner "A consultar" -->
+        <span class="plan__amount" style="font-size:1.6rem;line-height:1.3">A consultar</span>
+      </div>
+      <p class="plan__note">Precio según cantidad de sucursales.</p>
+      <hr class="plan__divider">
+      <ul class="plan__features">
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Todo lo del plan Pro</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Multi-sucursal centralizado</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Stock consolidado entre locales</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Reportes por sucursal y global</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Usuarios y roles por local</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Soporte dedicado</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Onboarding personalizado</span></li>
+        <li><span class="icon icon-check" aria-hidden="true"></span><span>Actualizaciones incluidas</span></li>
+      </ul>
+      <a class="plan__cta plan__cta--outline" href="contacto.html">Consultar precio</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     TABLA COMPARATIVA
+═════════════════════════════════════════════════════ -->
+<section class="section" id="compare">
+  <div class="section__header">
+    <span class="eyebrow">Comparativa</span>
+    <h2>¿Qué incluye cada plan?</h2>
+  </div>
+  <div class="card glass" style="padding: 1.5rem; overflow-x: auto;">
+    <table class="compare-table" aria-label="Comparativa de planes Mercaly">
+      <thead>
+        <tr>
+          <th>Funcionalidad</th>
+          <th>Básico</th>
+          <th>Pro</th>
+          <th>Multi-sucursal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Stock e inventario</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Punto de venta (POS)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Reportes básicos</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Backup automático diario</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Actualizaciones incluidas</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Compras y proveedores</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Reportes y dashboards avanzados</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Integración AFIP</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Integración balanzas y lectores</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Soporte prioritario (&lt; 2 h)</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Multi-sucursal centralizado</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Stock consolidado entre locales</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Onboarding personalizado</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PREGUNTAS FRECUENTES — PRECIOS
+═════════════════════════════════════════════════════ -->
+<section class="section" id="faq-precios">
+  <div class="section__header"><span class="eyebrow">Dudas sobre los planes</span><h2>Preguntas frecuentes</h2></div>
+  <div class="faq-list">
+    <details class="faq-item glass">
+      <summary>¿Hay un período de prueba?</summary>
+      <p>Sí. Podés usar Mercaly gratis durante el período de prueba con acceso completo al plan elegido. No pedimos tarjeta de crédito para empezar.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>¿Puedo cambiar de plan después?</summary>
+      <p>Sí, en cualquier momento. Si subís de plan, el cambio es inmediato. Si bajás, el ajuste se aplica al inicio del próximo período.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>¿Cómo se factura?</summary>
+      <p>Emitimos factura electrónica A o B en pesos argentinos. El cobro es mensual y podés ver el historial de pagos desde tu cuenta.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>¿Hay permanencia mínima?</summary>
+      <p>No. Cancelás cuando querés con 30 días de aviso. Tus datos te los entregamos completos antes de cerrar tu cuenta.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>¿El plan Multi-sucursal tiene un costo por local adicional?</summary>
+      <p>El precio se define según la cantidad de sucursales y el volumen de operaciones. Contactanos y te armamos una propuesta a medida.</p>
+    </details>
+  </div>
+</section>
+
+<!-- STRIP DE GARANTÍAS -->
+<section class="guarantee-strip glass" id="visible-guarantees" aria-label="Nuestras garantías">
+  <div class="seal"><span class="seal__medal"><span class="icon icon-support" aria-hidden="true"></span></span><div><p class="seal__title">Soporte local</p><p class="seal__detail">Respondemos en menos de 2 horas hábiles.</p></div></div>
+  <div class="seal"><span class="seal__medal"><span class="icon icon-shield" aria-hidden="true"></span></span><div><p class="seal__title">Sin permanencia</p><p class="seal__detail">Cancelás cuando querés.</p></div></div>
+  <div class="seal"><span class="seal__medal"><span class="icon icon-code" aria-hidden="true"></span></span><div><p class="seal__title">Tus datos, tuyos</p><p class="seal__detail">Exportá todo cuando quieras.</p></div></div>
+  <div class="seal"><span class="seal__medal"><span class="icon icon-calendar" aria-hidden="true"></span></span><div><p class="seal__title">Actualizaciones incluidas</p><p class="seal__detail">En todos los planes, sin costo extra.</p></div></div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final-cta card--indigo glass" id="final-cta">
+  <div class="final-cta__text">
+    <h2>Empezá gratis, decidís después</h2>
+    <p class="card__text">Probá Mercaly con tu operación real. Si en la prueba no te convence, no pagás nada.</p>
+  </div>
+  <a class="button button--white" href="contacto.html">Empezar prueba gratuita</a>
+</section>
+
+</main>
+
+<footer class="site-footer" id="page-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="index.html">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__text">Mercaly</span>
+      </a>
+      <p class="card__text">Software de gestión para almacenes, supermercados y más. Próximamente nuevos rubros.</p>
+    </div>
+    <div class="site-footer__column">
+      <p class="site-footer__title">Sitio</p>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Módulos</a>
+      <a href="postfood.html">PostFood</a>
+      <a href="precios.html">Precios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="garantias.html">Garantías</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="site-footer__column">
+      <p class="site-footer__title">Escribinos</p>
+      <span>hola@mercaly.com</span>
+      <span>Buenos Aires, Argentina</span>
+      <span>Lunes a viernes, 9 a 19 h</span>
+    </div>
+    <p class="site-footer__legal">© 2026 Mercaly. Sitio de demostración.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
